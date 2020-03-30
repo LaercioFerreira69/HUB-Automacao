@@ -7,14 +7,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import com.sun.tools.javac.util.List;
 
 public class Base_PO{
+	
 	private WebDriver driver;
 	
 	public Base_PO(WebDriver driver) {
 		this.driver = driver;
 	}
 	public WebDriver chromeDriverConexao() {
-		System.setProperty("webdriver.chrome.driver", "C:/Users/laercio.santos/eclipse-workspace/criaLogin/src/main/resources/chromedriver/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "./src/main/resources/chromedriver/chromedriver.exe");
 		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.advantageonlineshopping.com/#/");
 		return driver;
 	}
 	public WebElement findElement(By locator){
@@ -35,15 +38,10 @@ public class Base_PO{
 	public void click(By locator) {
 		driver.findElement(locator).click();
 	}
-	public Boolean isDisplayed(By locator) {
-		try {
-			return driver.findElement(locator).isDisplayed();
-		}catch (org.openqa.selenium.NoSuchElementException e) {
-			return false;			
-		}
-	}
 	public void site(String url) {
 		driver.get(url);
 	}
 	}
+
+
 	

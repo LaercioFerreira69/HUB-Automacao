@@ -1,16 +1,18 @@
 package br.com.rsi.hub3.TDD.pageObject;
 
+import static org.junit.Assert.assertFalse;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
+
 public class criaLogin_PO extends Base_PO{
-	
 			
-	public criaLogin_PO(WebDriver driver) {
-		super(driver);
 		
-	}
+	
 	By registrarUser    = By.id("menuUser");
+	By acessarConta     = By.id("menuUserLink");
 	By criarConta       = By.xpath("//a[@class='create-new-account ng-scope']");
 	By userName	        = By.name("usernameRegisterPage");
 	By emailUser		= By.name("emailRegisterPage");	
@@ -28,12 +30,13 @@ public class criaLogin_PO extends Base_PO{
 	By registraCadastro	= By.id("register_btnundefined");
 	By erroCadastro		= By.className("center block smollMargin invalid"); 
 	
-	public void criaLogin(WebDriver driver) {
-		//super(driver);
+	public criaLogin_PO(WebDriver driver) {
+		super(driver);
 	}
 	public void registraUser() throws InterruptedException{
-		click(registrarUser);
-		Thread.sleep(2000);
+			chromeDriverConexao();
+			click(registrarUser);
+			Thread.sleep(2000);
 		if(isDisplayed(criarConta )) {
 			type("Laercio_Test2",userName);		
 			type("laercio@Test.com",emailUser);	
@@ -45,16 +48,22 @@ public class criaLogin_PO extends Base_PO{
 			click(selecionaPais);
 			Thread.sleep(10000);
 			type("Brazil", selecionaPais);
-			type(Keys.ENTER);
-	}
-	//public String registered
-	{
+			//type(Keys.ENTER);
+		}
+		else {
+			System.out.println("");
+		}
+	
 		//Select combobox = new Select(driver.findElement(By.name("countryListboxRegisterPage")));
 		//Thread.sleep(6000);
 		//combobox.selectByVisibleText("Brazil");
 	}
+	private boolean isDisplayed(By criarConta2) {
+		// TODO Auto-generated method stub
+		return true;
 	}
-	private void type(Keys enter) {
+	public WebDriver chromeDriverConexao;
+		
 		
 	}
-}
+

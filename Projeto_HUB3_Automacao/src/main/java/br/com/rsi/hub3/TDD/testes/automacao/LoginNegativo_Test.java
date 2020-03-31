@@ -10,28 +10,28 @@ import br.com.rsi.hub3.TDD.pageObject.loginAcesso_PO;
 import br.com.rsi.hub3.TDD.pageObject.*;
 
 
-public class Login_Test {
+public class LoginNegativo_Test {
 	
 	private WebDriver driver;
-	loginAcesso_PO loginAcesso;
+	loginAcesso_PO loginAcessoNegativo;
 
 		
 
 	@Before
 	public void setUp() throws Exception {
-		loginAcesso = new loginAcesso_PO(driver);
-		driver = loginAcesso.chromeDriverConexao();
+		loginAcessoNegativo = new loginAcesso_PO(driver);
+		driver = loginAcessoNegativo.chromeDriverConexao();
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		driver.quit();
+//		driver.quit();
 	}
 
 	@Test
 	public void test() throws Exception {
 		
-		loginAcesso.logarPage();
+		loginAcessoNegativo.logarPageNegativo();
 //		loginAcesso.validaAcesso();		
 //		lassertEquals("Laercio_Test");
 //		loginAcesso.isDisplayed(By.className("hi-user containMiniTitle ng-binding"));

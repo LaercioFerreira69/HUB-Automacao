@@ -22,10 +22,7 @@ public class chromeDriverConexao extends Base_PO{
 	
 	public chromeDriverConexao(WebDriver driver) {
 		super(driver);
-		}
-	
-		
-		
+		}		
 	}
 
 	

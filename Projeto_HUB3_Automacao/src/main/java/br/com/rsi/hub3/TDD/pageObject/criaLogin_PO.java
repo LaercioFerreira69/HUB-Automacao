@@ -12,9 +12,11 @@ public class criaLogin_PO extends Base_PO{
 		
 	
 	By registrarUser    = By.id("menuUser");
-	By acessarConta     = By.id("menuUserLink");
+//	By acessarConta     = By.id("menuUserLink");
+	By acessarConta		=By.xpath("//a[@id='menuUserLink']");	
 	By criarConta       = By.xpath("//a[@class='create-new-account ng-scope']");
-	By userName	        = By.name("usernameRegisterPage");
+//	By userName	        = By.name("usernameRegisterPage");
+	By userName		  	=By.xpath("//input[@name='usernameRegisterPage']");
 	By emailUser		= By.name("emailRegisterPage");	
 	By passwordUser		= By.name("passwordRegisterPage");	
 	By confirmaPassword	= By.name("confirm_passwordRegisterPage");	
@@ -26,7 +28,8 @@ public class criaLogin_PO extends Base_PO{
 	By digitaEndereco	= By.name("addressRegisterPage");
 	By digitaEstado		= By.name("state_/_province_/_regionRegisterPage");
 	By digitaCep		= By.name("postal_codeRegisterPage");
-	By aceitaTermos		= By.name("i_agre");
+//	By aceitaTermos		= By.name("i_agre");
+	By aceitaTermos		= By.xpath("//input[@name='i_agree']");
 	By registraCadastro	= By.id("register_btnundefined");
 	By erroCadastro		= By.className("center block smollMargin invalid"); 
 	
@@ -34,36 +37,60 @@ public class criaLogin_PO extends Base_PO{
 		super(driver);
 	}
 	public void registraUser() throws InterruptedException{
-			chromeDriverConexao();
+			Thread.sleep(5000);
 			click(registrarUser);
-			Thread.sleep(2000);
-		if(isDisplayed(criarConta )) {
-			type("Laercio_Test2",userName);		
+			Thread.sleep(5000);
+			click(criarConta );
+			Thread.sleep(3000);
+			type("Laercio_Test2.0",userName);		
 			type("laercio@Test.com",emailUser);	
-			type("teste@123",passwordUser);
-			type("teste@123",confirmaPassword);
+			type("Teste@123",passwordUser);
+			type("Teste@123",confirmaPassword);
 			type("Laercio", primeiroNome);
 			type("123", ultimoNome);
 			type("970701234",foneUser);
 			click(selecionaPais);
-			Thread.sleep(10000);
+			Thread.sleep(2000);
 			type("Brazil", selecionaPais);
-			//type(Keys.ENTER);
-		}
-		else {
-			System.out.println("");
-		}
+			type("Osasco", digitaCidade);
+			type("Rua Sem Numero, s/n", digitaEndereco);
+			type("São Paulo", digitaEstado);
+			type("00000-666", digitaCep);
+			Thread.sleep(2000);
+			click(aceitaTermos);
+			click(registraCadastro);
+			
+			
+	}
+	public void registraUserNegativo () throws InterruptedException{
+		Thread.sleep(5000);
+		click(registrarUser);
+		Thread.sleep(5000);
+		click(criarConta );
+		Thread.sleep(3000);
+		type("Laercio_maisde15caracteres",userName);		
+		type("laercio@Test.com",emailUser);	
+		type("Teste@123",passwordUser);
+		type("Teste@123",confirmaPassword);
+		type("Laercio", primeiroNome);
+		type("123", ultimoNome);
+		type("970701234",foneUser);
+		click(selecionaPais);
+		Thread.sleep(2000);
+		type("Brazil", selecionaPais);
+		type("Osasco", digitaCidade);
+		type("Rua Sem Numero, s/n", digitaEndereco);
+		type("São Paulo", digitaEstado);
+		type("00000-666", digitaCep);
+		Thread.sleep(2000);
+		click(aceitaTermos);
+		click(registraCadastro);
 	
-		//Select combobox = new Select(driver.findElement(By.name("countryListboxRegisterPage")));
-		//Thread.sleep(6000);
-		//combobox.selectByVisibleText("Brazil");
-	}
-	private boolean isDisplayed(By criarConta2) {
-		// TODO Auto-generated method stub
-		return true;
-	}
-	public WebDriver chromeDriverConexao;
-		
 		
 	}
+}
+
+		
+		
+	
 

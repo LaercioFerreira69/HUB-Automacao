@@ -41,9 +41,11 @@
     <artifactId>cobertura</artifactId>
     <version>1.8</version>
 </dependency>
-
- 
-
+ <dependency>
+ <groupId>com.vimalselvam</groupId>
+ <artifactId>cucumber-extentsreport</artifactId>
+ <version>3.0.2</version>
+</dependency>
  <dependency>
     <groupId>info.cukes</groupId>
     <artifactId>cucumber-jvm-deps</artifactId>

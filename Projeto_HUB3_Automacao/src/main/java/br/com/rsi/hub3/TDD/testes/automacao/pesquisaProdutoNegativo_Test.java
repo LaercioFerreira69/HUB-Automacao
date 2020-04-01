@@ -9,25 +9,25 @@ import org.openqa.selenium.WebDriver;
 import br.com.rsi.hub3.TDD.pageObject.*;
 import br.com.rsi.hub3.TDD.pageObject.pesquisaProduto_PO;
 
-public class pesquisaProduto_Test{
+public class pesquisaProdutoNegativo_Test{
 	
 	private WebDriver driver;
-	pesquisaProduto_PO pesquisaProduto; 
+	pesquisaProduto_PO pesquisaProdutoNegativo; 
 
 	@Before
 	public void setUp() throws Exception {
-		pesquisaProduto = new pesquisaProduto_PO(driver);
-		driver = pesquisaProduto.chromeDriverConexao();
+		pesquisaProdutoNegativo = new pesquisaProduto_PO(driver);
+		driver = pesquisaProdutoNegativo.chromeDriverConexao();
 	}
 
 	@After
 	public void tearDown() throws Exception {
-//		driver.quit();
+		driver.quit();
 	}
 
 	@Test
 	public void test() throws Exception{
-		pesquisaProduto.pesquisarProdutoPelaLupa();
+		pesquisaProdutoNegativo.pesquisarProdutoPelaLupa();
 	}
 
 }

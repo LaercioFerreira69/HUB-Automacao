@@ -25,7 +25,7 @@ public class Login_Test {
 
 	@After
 	public void tearDown() throws Exception {
-		driver.quit();
+//		driver.quit();
 	}
 
 	@Test

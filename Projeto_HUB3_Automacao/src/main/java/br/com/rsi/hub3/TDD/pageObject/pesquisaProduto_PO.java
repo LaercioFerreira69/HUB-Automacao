@@ -16,26 +16,22 @@ public class pesquisaProduto_PO extends Base_PO{
 		super(driver);
 	}
 	
-	@FindBy
+	
 	By digitaPesquisa   = By.id("autoComplete");
-//	By abrePesquisa     = By.id("menuSearch");
 //	By abrePesquisa     = By.xpath("//div[@id='search']//a//*[local-name()='svg']");
-	By abrePesquisa		= By.cssSelector("#menuSearch");
-	By lupaPesquisaDigitado = By.id("menuSearch");
+	By clicaLupa		= By.id("menuSearch");
+	By lupaPesquisaDigitado = By.className("img");
 	By semResultados    = By.xpath("//label[contains(@class,'noProducts roboto-bold')]//span[@class='ng-binding']");
 	By encontraResultados = By.id("searchResultLabel");
 	By clicaProduto     = By.id("15");
 	
 	public void pesquisarProdutoPelaLupa() throws InterruptedException {
-		Thread.sleep(10000);
-		click(abrePesquisa);
-		Thread.sleep(3000);
+		ewait(clicaLupa);
+		click(clicaLupa);
 		type("headphones",digitaPesquisa);
-		click(lupaPesquisaDigitado);
-		Thread.sleep(3000);
-		click(clicaProduto);
-		
-		
-		
+		ewait(clicaLupa);
+		click(clicaLupa);
+		ewait(clicaProduto);
+		click(clicaProduto);	
 	}
 }

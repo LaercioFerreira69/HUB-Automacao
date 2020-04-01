@@ -21,10 +21,10 @@ public class criaLogin_Test {
 	}
 	@After
 	public void tearDown() throws Exception {
-		driver.quit();
+//		driver.quit();
 	}
 	@Test
-	public void test() throws InterruptedException {
+	public void test() throws Exception {
 		criaLogin.registraUser();
 	}
 }

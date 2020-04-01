@@ -18,9 +18,9 @@ public class consultaClickHome_PO extends Base_PO{
 	
 	
 	public void clicaItemNaTela() throws InterruptedException {	
-		Thread.sleep(5000);
+		ewait(itemTelaInicial);
 		click(itemTelaInicial);
-		Thread.sleep(5000);
+		ewait(itemTelaItens);
 		click(itemTelaItens);
 		
 		

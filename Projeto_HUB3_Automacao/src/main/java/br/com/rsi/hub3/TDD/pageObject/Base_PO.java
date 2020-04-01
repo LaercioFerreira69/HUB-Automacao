@@ -13,7 +13,7 @@ import com.sun.tools.javac.util.List;
 
 public class Base_PO{
 	
-	private WebDriver driver;
+	protected WebDriver driver;
 	
 	public Base_PO(WebDriver driver) {
 		this.driver = driver;
@@ -22,6 +22,7 @@ public class Base_PO{
 		System.setProperty("webdriver.chrome.driver", "./src/main/resources/chromedriver/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
+//		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("https://www.advantageonlineshopping.com/#/");
 		return driver;
 	}
@@ -46,7 +47,11 @@ public class Base_PO{
 	public void site(String url) {
 		driver.get(url);
 	}
+	public void ewait(By locator) {
+		WebDriverWait ewait = new WebDriverWait(driver,10);
+		ewait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
+}
 
 
 	

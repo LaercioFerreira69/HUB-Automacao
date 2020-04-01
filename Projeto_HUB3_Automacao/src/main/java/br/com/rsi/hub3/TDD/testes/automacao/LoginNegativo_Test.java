@@ -32,9 +32,9 @@ public class LoginNegativo_Test {
 	public void test() throws Exception {
 		
 		loginAcessoNegativo.logarPageNegativo();
-//		loginAcesso.validaAcesso();		
-//		lassertEquals("Laercio_Test");
-//		loginAcesso.isDisplayed(By.className("hi-user containMiniTitle ng-binding"));
+//		loginAcessoNegativo.validaAcesso();		
+//		assertEquals("Laercio_Test");
+//		loginAcessoNegativo.isDisplayed(By.className("hi-user containMiniTitle ng-binding"));
 //		return true;
 }
 
